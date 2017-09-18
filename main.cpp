@@ -15,7 +15,7 @@ int tamano = 104;
 //Escribe todos los datos del libro en un archivo con nombre nombre_archivo en la posicion dada
 void escribir(string nombre_archivo, Libro*libro, int posicion)
 {
-    ofstream out(nombre_archivo.c_str(),ios::in | ios::out);
+    ofstream out(nombre_archivo.c_str(),ios::in );
     if(!out.is_open())
     {
         out.open(nombre_archivo.c_str());
@@ -42,8 +42,11 @@ Libro* leer(string nombre_archivo, int posicion)
     in.read(nombre,50);
     in.read(autor,50);
     in.read((char *)&existencia,4);
+    in.close();
 
-    return new Libro(nombre,autor,existencia);
+    Libro *libro = new Libro(nombre,autor,existencia);
+
+    return libro;
 }
 
 //Crea un mapa en base a las llaves y valores dados, asocia cada llave con los valores en la misma posicion
@@ -102,10 +105,24 @@ void reemplazarValores(NodoBinario* raiz, int valor)
     reemplazarValores(raiz->derecho,valor);
     reemplazarValores(raiz->izquierdo,valor);
 }
-
+bool estadoDeBit(char valor, int pos)
+{
+    int mascara = 1;
+    mascara = mascara<<pos;
+    return valor & mascara;
+}
 //Devuelve la cantidad de bits "encendidos" o con el valores de 1
 int contarBits(char byte) {
-    return byte;
+
+        int contador=0;
+        for(int n=0;n<8;n++)
+        {
+            if(estadoDeBit(byte,n)){
+                contador++;
+            }
+        }
+        return contador;
+
 }
 int main ()
 {
