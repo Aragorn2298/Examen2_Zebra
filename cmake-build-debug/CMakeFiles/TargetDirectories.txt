@@ -1,0 +1,3 @@
+C:/Users/rbara/CLionProjects/Examen2_Zebra/cmake-build-debug/CMakeFiles/Examen2_Zebra.dir
+C:/Users/rbara/CLionProjects/Examen2_Zebra/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/rbara/CLionProjects/Examen2_Zebra/cmake-build-debug/CMakeFiles/rebuild_cache.dir
