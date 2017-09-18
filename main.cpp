@@ -66,6 +66,28 @@ map<string, int> convertirEnMapa(set<string> llaves, set<int> valores)
 queue<int> popBack(queue<int> cola)
 {
     queue<int> respuesta;
+    stack<int> respuestaT;
+    stack<int> temporal;
+    int agregar,contador;
+    while(!cola.empty())
+    {
+        agregar = cola.front();
+        temporal.push(agregar);
+        cola.pop();
+    }
+    temporal.pop();
+    while(!temporal.empty())
+    {
+        agregar = temporal.top();
+        respuestaT.push(agregar);
+        temporal.pop();
+    }
+    while(!respuestaT.empty())
+    {
+        agregar = respuestaT.top();
+        respuesta.push(agregar);
+        respuestaT.pop();
+    }
     return respuesta;
 }
 
@@ -82,11 +104,9 @@ void reemplazarValores(NodoBinario* raiz, int valor)
 }
 
 //Devuelve la cantidad de bits "encendidos" o con el valores de 1
-int contarBits(char byte)
-{
-    return byte ;
+int contarBits(char byte) {
+    return byte;
 }
-
 int main ()
 {
     //Funcion evaluadora
